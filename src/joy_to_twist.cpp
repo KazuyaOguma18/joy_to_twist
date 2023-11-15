@@ -22,7 +22,7 @@ public:
 JoyToTwist::JoyToTwist()
 {
     joy_sub = nh.subscribe("/joy", 100, &JoyToTwist::joyCallback, this);
-    vel_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 100);
+    vel_pub = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
     timer = nh.createTimer(ros::Duration(0.01), &JoyToTwist::timerCallback, this);
 }
 
